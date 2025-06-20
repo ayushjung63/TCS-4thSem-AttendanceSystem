@@ -1,0 +1,52 @@
+🗂️ Entities & Relationships
+MasterYear
+ -> id, name (e.g., "2024/25")
+
+Semester
+ -> id, name (e.g., "First", "Second"), masterYear
+ -> many-to-one with MasterYear
+
+Faculty
+ -> id, name, description
+ -> One-to-many with Student
+
+Subject
+ -> id, name, code, semester
+ -> Many-to-one with Semester
+
+Student
+ -> id, name, email, faculty, semester, masterYear
+ -> Many-to-one with semester, Many-to-one with faculty, Many-to-one with masterYear
+
+Attendance
+ -> id, student, subject, date, status (Present/Absent)
+ -> Many-to-one with student, Many-to-one with subject
+
+⚙️ Endpoints (REST APIs)
+🔹 CRUD APIs
+1. /api/master-years
+   -> GET, POST, PUT, DELETE
+
+2. /api/semesters
+   -> CRUD + filter by master year
+
+3. /api/faculties
+   -> CRUD
+
+4. /api/subjects
+   -> CRUD + filter by semester
+
+5. /api/students
+   -> CRUD + filter by faculty/semester/master year
+
+🔹 Attendance API
+POST Bulk Attendace :: /api/attendance/bulk
+GET  Fetch Attendance By Date & Subject: /api/attendance?date=2025-06-19&subjectId=3
+
+
+
+
+FLOW
+
+CONTROLLER => SERVICE => REPO
+
