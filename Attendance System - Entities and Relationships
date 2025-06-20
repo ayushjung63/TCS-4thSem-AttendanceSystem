@@ -8,7 +8,6 @@ Semester
 
 Faculty
  -> id, name, description
- -> One-to-many with Student
 
 Subject
  -> id, name, code, semester
@@ -16,7 +15,7 @@ Subject
 
 Student
  -> id, name, email, faculty, semester, masterYear
- -> Many-to-one with semester, Many-to-one with faculty, Many-to-one with masterYear
+ -> Many-to-one with semester, Many-to-one with faculty
 
 Attendance
  -> id, student, subject, date, status (Present/Absent)
@@ -25,7 +24,7 @@ Attendance
 ⚙️ Endpoints (REST APIs)
 🔹 CRUD APIs
 1. /api/master-years
-   -> GET, POST, PUT, DELETE
+   -> GET, POST, DELETE
 
 2. /api/semesters
    -> CRUD + filter by master year

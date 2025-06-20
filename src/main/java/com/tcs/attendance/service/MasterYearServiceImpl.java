@@ -18,10 +18,14 @@ public class MasterYearServiceImpl implements MasterYearService {
     public void save(MasterYear masterYear) {
         MasterYear entity;
         // save
+        // if not id present in req, this is save case
         if (masterYear.getId()== null){
+            // create new empty object
             entity=new MasterYear();
         }else{
             // update case
+            // if id is present in request, this is update case
+            // fetch exisiting masterYear by id from database
             entity=this.findById(masterYear.getId());
         }
         entity.setName(masterYear.getName());
