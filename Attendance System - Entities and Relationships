@@ -14,7 +14,7 @@ Subject
  -> Many-to-one with Semester
 
 Student
- -> id, name, email, faculty, semester, masterYear
+ -> id, name, email, faculty, semester
  -> Many-to-one with semester, Many-to-one with faculty
 
 Attendance
@@ -42,10 +42,31 @@ Attendance
 POST Bulk Attendace :: /api/attendance/bulk
 GET  Fetch Attendance By Date & Subject: /api/attendance?date=2025-06-19&subjectId=3
 
+{
+id:1,
+name:First
+masterYearId:1
+}
+
 
 
 
 FLOW
 
 CONTROLLER => SERVICE => REPO
+
+
+CONTROLLER (Entity class) => Service => Repo
+CONTROLLER (Dto class) => Service (convert dto to Entity class) => Repo
+
+
+Master Year -> Faculty -> Semester -> Subject -> Student
+
+1. Choose Master Year
+2. Filter Semester By Master year Id
+3. Filter Subject by Semester Id
+4. Filter Student by Semester
+
+after attendance send in request -> list of (subject,student,status(present/absent),date)
+
 

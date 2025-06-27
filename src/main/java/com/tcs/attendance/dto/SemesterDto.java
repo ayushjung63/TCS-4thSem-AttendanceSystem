@@ -6,6 +6,15 @@ public class SemesterDto {
     private Integer masterYearId;
     private String masterYearName;
 
+    public SemesterDto(){}
+
+    public SemesterDto(Integer id, String name, Integer masterYearId, String masterYearName) {
+        this.id = id;
+        this.name = name;
+        this.masterYearId = masterYearId;
+        this.masterYearName = masterYearName;
+    }
+
     public Integer getId() {
         return id;
     }

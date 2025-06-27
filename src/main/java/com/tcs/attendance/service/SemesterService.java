@@ -13,4 +13,6 @@ public interface SemesterService {
     Semester findById(int id);
 
     void delete(Integer id);
+
+    List<SemesterDto> findByMasterYearId(Integer masterYearId);
 }

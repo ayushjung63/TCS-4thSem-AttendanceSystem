@@ -34,6 +34,12 @@ public class SemesterController {
         return sem;
     }
 
+    @RequestMapping(value = "/master-year-id/{masterYearId}", method = RequestMethod.GET)
+    public  List<SemesterDto> getByMasterYearId(@PathVariable Integer masterYearId) {
+        List<SemesterDto> semList = semesterService.findByMasterYearId(masterYearId);
+        return semList;
+    }
+
 
 
 }
