@@ -1,6 +1,7 @@
 package com.tcs.attendance.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.tcs.attendance.enums.Status;
 
 import java.time.LocalDate;
 
@@ -12,6 +13,8 @@ public class StudentDto {
     private Integer semesterId;
     private String subjectName ;
     private String semesterName ;
+
+    private Status status;
 
     private LocalDate date;
 
@@ -87,5 +90,13 @@ public class StudentDto {
 
     public void setDate(LocalDate date) {
         this.date = date;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 }
