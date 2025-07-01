@@ -2,6 +2,7 @@ package com.tcs.attendance.controller;
 
 import com.tcs.attendance.entity.MasterYear;
 import com.tcs.attendance.service.MasterYearService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +16,7 @@ public class MasterYearController {
     private MasterYearService masterYearService;
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public String save(@RequestBody MasterYear masterYear) {
+    public String save(@Valid @RequestBody MasterYear masterYear) {
         masterYearService.save(masterYear);
         return "Master year saved successfully";
     }
